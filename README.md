@@ -25,7 +25,7 @@ No such file or directory: 'geckodriver'
 # 或者
 The 'geckodriver' needs to be in PATH
 ```
-注意：UI 自动化测试对软件版本信息特别敏感，如果 Geckodriver 和 Selenium 版本号对不上，就会报无法执行的错误：
+注意：UI 自动化测试对软件版本信息特别敏感，如果 Geckodriver 和 Selenium 版本号对不上，就会报无法执行的错误：
 ```
 OSError: [Errno 8] Exec format error
 ```
