@@ -48,7 +48,7 @@ Error: GDK_BACKEND does not match available displays
 apt-get install xvfb libgtk-3-dev
 pip install pyvirtualdisplay
 ```
-注：上述方法我是在 Debian 服务器上测试成功，如果使用其他 Linux 发行版，可能有别的方法实现，请大家自行验证。
+注：上述方法是在我的 Debian Docker 机上运行的，如果使用其他 Linux 发行版，可能实现的方法不一致，请大家自行验证。
 
 ### 精髓
 本 Repo 虽然只截取了很少一部分用例，但麻雀虽小五脏俱全，基本上覆盖了常见的性能测试重难点：
