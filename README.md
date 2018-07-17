@@ -4,14 +4,14 @@
 
 ### Selenium 
 Selenium 是一个专门用于 Web 应用程序测试的工具了，它能直接运行在浏览器中，就像真正的用户在操作一样，支持常用的浏览器包括 Firefox 和 Chrome 等。
-#### Python 依赖包安装
+#### Python 依赖包安装
 ```
 pip install -U selenium
 ```
 
 ### Geckodriver
 Geckodriver 是 Firefox 官方推出的浏览器驱动程序，Chrome 对应的是 Chrome Driver。由于操作系统历史原因，Linux 服务器上浏览器大多是 Firefox，因此，如果你希望能在 Jenkins 上持续集成测试，那么建议还是使用 Geckodriver 更方便。
-#### 下载安装
+#### 下载安装
 ```
 wget -c https://github.com/mozilla/geckodriver/releases/download/v0.16.0/geckodriver-v0.16.0-linux64.tar.gz
 ```
@@ -48,7 +48,7 @@ Error: GDK_BACKEND does not match available displays
 apt-get install xvfb libgtk-3-dev
 pip install pyvirtualdisplay
 ```
-注：上述方法我是在 Debian 服务器上测试成功，如果使用其他 Linux 发行版，可能有别的方法实现，请大家自行验证。
+注：上述方法我是在 Debian 服务器上测试成功，如果使用其他 Linux 发行版，可能有别的方法实现，请大家自行验证。
 
 ### 精髓
 本 Repo 虽然只截取了很少一部分用例，但麻雀虽小五脏俱全，基本上覆盖了常见的性能测试重难点：
@@ -76,7 +76,7 @@ self.uiutil.driver.execute_script("$(arguments[0]).click()", search_btn)
 ```
 
 #### 弱网测试
-```
+```Python
 # analog network
 if test_network == 'cable':
     self.bandwidth = Network.cable.value
