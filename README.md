@@ -1,15 +1,17 @@
 # WebAutomation
-本项目是基于 Selenium 的 Web 自动化测试实践，通过模拟用户点击行为功能，对 Splunk 客户端进行全方位覆盖测试和性能分析。注：本 Repo 只是整个 Web 自动化测试实践的极小一部分用例，冰山一角，请大家谅解，重要的是学习和掌握方法。
-建议完整项目结构：
-web_profiler
-    |--config（配置文件）
-    |--data（数据文件）
-    |--drivers（驱动）
-    |--log（日志）
-    |--report（报告）
-    |--test（测试用例）
-    |--utils（公共方法）
-    |--ReadMe.md
+本项目是基于 Selenium 的 Web 自动化测试实践，通过模拟用户点击行为功能，对 Splunk 客户端进行全方位覆盖测试和性能分析。注：本 Repo 只是整个 Web 自动化测试实践的极小一部分用例，冰山一角，请大家谅解，重要的是学习和掌握方法。  
+建议完整项目结构：  
+```
+web_profiler  
+    |--config（配置文件）  
+    |--data（数据文件）  
+    |--drivers（驱动）  
+    |--log（日志）  
+    |--report（报告）  
+    |--test（测试用例）  
+    |--utils（公共方法）  
+    |--ReadMe.md  
+```
 
 ### Selenium 
 Selenium 是一个专门用于 Web 应用程序测试的工具了，它能直接运行在浏览器中，就像真正的用户在操作一样，支持常用的浏览器包括 Firefox 和 Chrome 等。
