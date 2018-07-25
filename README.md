@@ -77,12 +77,26 @@ login_btn.send_keys(Keys.ENTER)
 ```
 
 #### 动态加载问题
+如果能直接准确的定位到动态元素 XPath：
 ```Python
 keywords_ele = self.uiutil.driver.find_element_by_xpath(search_xpath)
 keywords_ele.send_keys(self.splunk_env.spl)
 search_btn = self.uiutil.driver.find_element_by_xpath(button_xpath)
 # 调用 js 执行 Click 事件
 self.uiutil.driver.execute_script("$(arguments[0]).click()", search_btn)
+```
+否则，可以尝试先加载页面，然后再在页面中寻找动态元素：
+```Python
+from tornado_fetcher import Fetcher
+
+fetcher=Fetcher (
+    user_agent='phantomjs', 
+    phantomjs_proxy='http://localhost:12306', 
+    poolsize=10, 
+    async=False
+)
+fetcher.phantomjs_fetch(url)
+fetcher.phantomjs_fetch(url, js_script='function(){setTimeout("window.scrollTo(0,100000)}", 1000)')
 ```
 
 #### 弱网测试
