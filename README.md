@@ -115,3 +115,33 @@ else:
 self.proxy = self.uitools.start_proxy(proxy_path, self.bandwidth)
 self.driver = self.uitools.start_driver()
 ```
+
+Linux 系统中 /proc 文件虚拟系统允许用户进程与内核内部数据交互的伪文件系统，使得用户进程可以在系统运行时动态更改内核信息，而不需要重新引导内核系统。该目录中主要包含如下参数：
+|文件名|描述|
+|—————|————————————————————|
+|APM|高级电源管理|
+|CPUINFO|CPU 信息|
+|IOPORTS|进程占用 IO 端口|
+|LOADAVG|系统平均负载均衡|
+|MEMINFO|内存信息|
+|NET|网络协议信息|
+|PCI|PCI 设备信息|
+|STAT|这个选项包含信息比较多，包括 CPU 利用率，磁盘，内存页，内存对换，全部中断，接触开关以及自举时间等|
+|SWAPS|交换分区信息|
+
+#### CPU 监控
+```Python
+with open('/proc/CPUinfo') as f:
+    for line in f:
+        if not line.strip():
+            # end of one processor
+            CPUinfo['proc%s' % nprocs] = procinfo
+            nprocs=nprocs+1
+            # Reset
+            procinfo=OrderedDict()
+        else:
+            if len(line.split(':')) == 2:
+                procinfo[line.split(':')[0].strip()] = line.split(':')[1].strip()
+            else:
+                procinfo[line.split(':')[0].strip()] = ''
+```
