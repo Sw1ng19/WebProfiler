@@ -158,15 +158,15 @@ with open('/proc/meminfo') as f:
 ```Python
 # RX
 ifstat = open('/proc/net/dev').readlines()
-    for interface in ifstat:
-	if INTERFACE in interface:
-	    stat = float(interface.split()[1])
-	    STATS[0:] = [stat]
+for interface in ifstat:
+    if INTERFACE in interface:
+        stat = float(interface.split()[1])
+	STATS[0:] = [stat]
             
 # TX
 ifstat = open('/proc/net/dev').readlines()
-    for interface in ifstat:
-	if INTERFACE in interface:
-	    stat = float(interface.split()[9])
-	    STATS[1:] = [stat]
+for interface in ifstat:
+    if INTERFACE in interface:
+        stat = float(interface.split()[9])
+	STATS[1:] = [stat]
 ```
