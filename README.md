@@ -115,7 +115,7 @@ else:
 self.proxy = self.uitools.start_proxy(proxy_path, self.bandwidth)
 self.driver = self.uitools.start_driver()
 ```
-
+#### 性能监控
 Linux 系统中 /proc 文件虚拟系统允许用户进程与内核内部数据交互的伪文件系统，使得用户进程可以在系统运行时动态更改内核信息，而不需要重新引导内核系统。该目录中主要包含如下参数：  
 
 |文件名|描述|  
@@ -130,7 +130,7 @@ Linux 系统中 /proc 文件虚拟系统允许用户进程与内核内部数据�
 |STAT|这个选项包含信息比较多，包括 CPU 利用率，磁盘，内存页，内存对换，全部中断，接触开关以及自举时间等|  
 |SWAPS|交换分区信息|  
 
-#### CPU 监控
+#### CPU
 ```Python
 with open('/proc/CPUinfo') as f:
     for line in f:
@@ -145,4 +145,28 @@ with open('/proc/CPUinfo') as f:
                 procinfo[line.split(':')[0].strip()] = line.split(':')[1].strip()
             else:
                 procinfo[line.split(':')[0].strip()] = ''
+```
+
+#### Mem
+```Python
+with open('/proc/meminfo') as f:
+    for line in f:
+        meminfo[line.split(':')[0]] = line.split(':')[1].strip()
+```
+
+#### I/O
+```Python
+# RX
+ifstat = open('/proc/net/dev').readlines()
+	for interface in ifstat:
+		if INTERFACE in interface:
+			stat = float(interface.split()[1])
+			STATS[0:] = [stat]
+            
+# TX
+ifstat = open('/proc/net/dev').readlines()
+	for interface in ifstat:
+		if INTERFACE in interface:
+			stat = float(interface.split()[9])
+			STATS[1:] = [stat]
 ```
